@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoMacroTool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="overlay-container" id="overlay">
+        <!-- Header -->
+        <header class="overlay-header">
+            <h1 class="app-title">GoMacroTool</h1>
+            <div class="header-controls">
+                <button class="toggle-btn" id="toggleBtn" title="Toggle macros">
+                    <span class="toggle-indicator"></span>
+                    <span class="toggle-text">Disabled</span>
+                </button>
+                <button class="pin-btn" id="pinBtn" title="Pin overlay">📌</button>
+            </div>
+        </header>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item" id="gameStatus">
+                <span class="status-dot inactive"></span>
+                <span class="status-text">Game: Inactive</span>
+            </div>
+            <div class="status-item" id="macroStatus">
+                <span class="status-text">Macros: Ready</span>
+            </div>
+        </div>
+
+        <!-- Macros Section -->
+        <section class="section macros-section">
+            <h2 class="section-title">Macros</h2>
+            <div class="macro-list" id="macroList">
+                <!-- Macro items populated by JS -->
+            </div>
+        </section>
+
+        <!-- Buff Timers Section -->
+        <section class="section buffs-section">
+            <h2 class="section-title">
+                Buffs
+                <button class="clear-all-btn" id="clearBuffsBtn" title="Clear all timers">×</button>
+            </h2>
+            <div class="buff-list" id="buffList">
+                <!-- Buff items populated by JS -->
+            </div>
+        </section>
+
+        <!-- Active Triggers Section -->
+        <section class="section triggers-section">
+            <h2 class="section-title">Active Triggers</h2>
+            <div class="trigger-list" id="triggerList">
+                <!-- Trigger items populated by JS -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="overlay-footer">
+            <span class="footer-text">Press ScrollLock to toggle</span>
+        </footer>
+    </div>
+
+    <!-- Pixel Picker Modal -->
+    <div class="modal" id="pixelPickerModal">
+        <div class="modal-content">
+            <h2 class="modal-title">Pixel Picker</h2>
+            <p class="modal-description">Move cursor to target pixel and click to capture</p>
+            <div class="pixel-preview" id="pixelPreview">
+                <div class="color-swatch" id="colorSwatch"></div>
+                <div class="pixel-info">
+                    <span class="pixel-coords" id="pixelCoords">X: 0, Y: 0</span>
+                    <span class="pixel-color" id="pixelColor">#000000</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelPickerBtn">Cancel</button>
+                <button class="btn btn-primary" id="confirmPickerBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <h2 class="modal-title">Settings</h2>
+            <form class="settings-form" id="settingsForm">
+                <div class="form-group">
+                    <label class="form-label">Toggle Key</label>
+                    <select class="form-select" id="toggleKeySelect">
+                        <option value="scrolllock">Scroll Lock</option>
+                        <option value="f13">F13</option>
+                        <option value="f14">F14</option>
+                        <option value="f15">F15</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Pixel Check Rate (Hz)</label>
+                    <input type="number" class="form-input" id="pixelRateInput" min="10" max="1000" value="250">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Overlay Width (px)</label>
+                    <input type="number" class="form-input" id="overlayWidthInput" min="200" max="400" value="230">
+                </div>
+                <div class="form-group">
+                    <label class="form-checkbox">
+                        <input type="checkbox" id="onlyInGameCheck">
+                        <span>Only run when game is active</span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="form-checkbox">
+                        <input type="checkbox" id="autoDetectCheck">
+                        <span>Auto-detect game window</span>
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelSettingsBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+</body>
+</html>

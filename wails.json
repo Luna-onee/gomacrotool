@@ -1,0 +1,31 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "GoMacroTool",
+  "outputfilename": "GoMacroTool",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Jaide",
+    "email": ""
+  },
+  "info": {
+    "companyName": "GoMacroTool",
+    "productName": "GoMacroTool",
+    "productVersion": "1.0.0",
+    "copyright": "Copyright 2024",
+    "comments": "A Windows macro automation tool written in Go"
+  },
+  "wailsjsdir": "./frontend",
+  "version": "2",
+  "outputType": "desktop",
+  "bindings": {
+    "js:injectlocal": "false"
+  },
+  "nsis": {
+    "displayLanguageSelector": false,
+    "installerIcon": "icon.ico",
+    "installMode": "currentUser"
+  }
+}
